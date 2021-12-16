@@ -1,11 +1,15 @@
 {
-  "name": "Admin-Express",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "dependencies": {
-    "body-parser": "^1.19.1",
-    "express": "^4.17.1",
-    "nodemon": "^2.0.15"
-  }
+    "name": "Admin-Express",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+        "body-parser": "^1.19.1",
+        "express": "^4.17.1",
+        "nodemon": "^2.0.15"
+    },
+    "scripts": {
+        "start": "node app.js",
+        "dev": "nodemon app.js"
+    }
 }
