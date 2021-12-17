@@ -3,6 +3,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 8000;
+const questions = require('./data/Questions');
 
 // mongoose.connect('mongodb://localhost/ourdata');
 // mongoose.Promise = global.Promise;
@@ -14,12 +15,6 @@ const port = process.env.PORT || 8000;
 // app.get('/admin', (req, res) => {
 //     res.send(`API Testing.`);
 // })
-const questions = [{
-    "id": 1,
-    "question": "5x = 10, x = ?",
-    "options": ["1", "2", "3", "4"],
-    "answer": "2"
-}]
 
 //GET Method. 
 app.get('/api/questions', (req, res) => {
