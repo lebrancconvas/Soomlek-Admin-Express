@@ -6,14 +6,21 @@ const port = process.env.PORT || 8001;
 mongoose.connect('mongodb://localhost/ourdata');
 mongoose.Promise = global.Promise;
 
-app.get('/', (req, res) => {
-    res.send(`Test.`);
-})
+// app.get('/', (req, res) => {
+//     res.send(`Test.`);
+// })
 
-app.get('/admin', (req, res) => {
-    res.send(`API Testing.`);
-})
+// app.get('/admin', (req, res) => {
+//     res.send(`API Testing.`);
+// })
 
+app.use(express.json());
+
+app.use('/api', require('./routes/api'));
+
+app.use((err, req, res, next) => {
+    res.status(422).send({ error: err.message });
+})
 
 
 app.listen(port, () => {
