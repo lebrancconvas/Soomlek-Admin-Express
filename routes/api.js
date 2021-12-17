@@ -7,5 +7,10 @@ router.get('/quiz', (req, res) => {
 });
 
 router.post('/quiz', (req, res) => {
-
+    res.send({
+        type: "POST",
+        name: req.body.name
+    })
 })
+
+module.exports = router;
