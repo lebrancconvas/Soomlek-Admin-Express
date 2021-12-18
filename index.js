@@ -20,6 +20,9 @@ const logger = require('./middleware/logger');
 
 app.use(logger);
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 app.use('/api/questions', require('./routes/api/questionsAPI'));
 
 app.use(express.static(path.join(__dirname, 'public')));
