@@ -25,7 +25,9 @@ app.engine('handlebars', engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {
+        title: "Soomlek Admin"
+    });
 })
 
 app.use(express.json());
