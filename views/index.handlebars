@@ -33,6 +33,9 @@
 	{{#each questions}}
 		<li class="list-group-item">
 			{{this.question}}
+			{{#each this.options}}
+				<li class="list-group-item">{{this}}</li>  
+			{{/each}}
 		</li>
 	{{/each}} 
 </ul>
