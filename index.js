@@ -5,6 +5,7 @@ const app = express();
 const port = process.env.PORT || 8000;
 const questions = require('./data/Questions');
 const logger = require('./middleware/logger');
+const { engine } = require('express-handlebars');
 
 // mongoose.connect('mongodb://localhost/ourdata');
 // mongoose.Promise = global.Promise;
@@ -19,6 +20,13 @@ const logger = require('./middleware/logger');
 
 
 app.use(logger);
+
+app.engine('handlebars', engine({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
+
+app.get('/', (req, res) => {
+    res.render('index');
+})
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
