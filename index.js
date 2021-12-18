@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 8000;
 const questions = require('./data/Questions');
+const logger = require('./middleware/logger');
 
 // mongoose.connect('mongodb://localhost/ourdata');
 // mongoose.Promise = global.Promise;
@@ -15,6 +16,9 @@ const questions = require('./data/Questions');
 // app.get('/admin', (req, res) => {
 //     res.send(`API Testing.`);
 // })
+
+
+app.use(logger);
 
 //GET Method. 
 app.get('/api/questions', (req, res) => {
