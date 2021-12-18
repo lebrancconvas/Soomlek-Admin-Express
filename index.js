@@ -26,7 +26,12 @@ app.get('/api/questions', (req, res) => {
 });
 
 app.get('/api/questions/:id', (req, res) => {
-    res.json(questions.filter(question => question.id === parseInt(req.params.id)));
+    let found = questions.some(question => question.id === parseInt(req.params.id));
+    if (found) {
+        res.json(questions.filter(question => question.id === parseInt(req.params.id)));
+    } else {
+        res.status(400).json({ message: `No Question with the ID of ${req.params.id}` });
+    }
 })
 
 app.use(express.static(path.join(__dirname, 'public')));
