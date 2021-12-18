@@ -35,4 +35,25 @@ router.post('/', (req, res) => {
     res.json(questions);
 })
 
+//PUT Method 
+router.put('/:id', (req, res) => {
+    let found = questions.some(question => question.id === parseInt(req.params.id));
+    if (found) {
+        const updateQuestion = req.body;
+        questions.forEach(question => {
+            if (question.id === parseInt(req.params.id)) {
+                question.question = updateQuestion ? updateQuestion.question : question.question;
+                question.options = updateQuestion ? updateQuestion.options : question.options;
+                question.answer = updateQuestion ? updateQuestion.answer : question.answer;
+
+                res.json({ msg: `Question Update.`, question })
+            } else {
+                res.status(400).json({ msg: `No question with the ID of ${req.params.id}` });
+            }
+        })
+    } else {
+
+    }
+})
+
 module.exports = router;
