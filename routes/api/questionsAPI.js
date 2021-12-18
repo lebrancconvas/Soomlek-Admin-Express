@@ -54,4 +54,18 @@ router.put('/:id', (req, res) => {
     }
 })
 
+//DELETE Method
+router.delete('/:id', (req, res) => {
+    let found = questions.some(question => question.id === parseInt(req.params.id));
+
+    if (found) {
+        res.json({
+            msg: "Delete Question",
+            questions: questions.filter(question => question.id !== parseInt(req.params.id))
+        })
+    } else {
+        res.status(400).json({ msg: `No user with the ID of ${req.params.id}` });
+    }
+})
+
 module.exports = router;
