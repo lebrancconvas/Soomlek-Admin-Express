@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
     }
 
     questions.push(newQuestion);
-    res.json(questions);
+    res.redirect('/');
 })
 
 //PUT Method 
