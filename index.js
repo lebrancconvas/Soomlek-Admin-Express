@@ -6,7 +6,6 @@ const port = process.env.PORT || 8000;
 const questions = require('./data/Questions');
 const logger = require('./middleware/logger');
 const { engine } = require('express-handlebars');
-const questions = require('./data/Questions');
 
 // mongoose.connect('mongodb://localhost/ourdata');
 // mongoose.Promise = global.Promise;
