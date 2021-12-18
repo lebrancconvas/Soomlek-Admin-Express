@@ -25,6 +25,10 @@ app.get('/api/questions', (req, res) => {
     res.json(questions);
 });
 
+app.get('/api/questions/:id', (req, res) => {
+    res.json(questions.filter(question => question.id === parseInt(req.params.id)));
+})
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(express.json());
