@@ -20,19 +20,7 @@ const logger = require('./middleware/logger');
 
 app.use(logger);
 
-//GET Method. 
-app.get('/api/questions', (req, res) => {
-    res.json(questions);
-});
-
-app.get('/api/questions/:id', (req, res) => {
-    let found = questions.some(question => question.id === parseInt(req.params.id));
-    if (found) {
-        res.json(questions.filter(question => question.id === parseInt(req.params.id)));
-    } else {
-        res.status(400).json({ message: `No Question with the ID of ${req.params.id}` });
-    }
-})
+app.use('/api/questions', require('./routes/api/questionsAPI'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
