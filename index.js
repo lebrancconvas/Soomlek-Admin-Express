@@ -28,7 +28,7 @@ app.set('view engine', 'handlebars');
 app.get('/', (req, res) => {
     res.render('index', {
         title: "Soomlek Admin",
-        users
+        questions
     });
 })
 
