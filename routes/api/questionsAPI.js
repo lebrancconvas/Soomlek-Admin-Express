@@ -23,7 +23,7 @@ router.post('/', (req, res) => {
     const newQuestion = {
         id: uuid.v4(),
         question: req.body.question,
-        options: req.body.options,
+        options: [req.body.option1, req.body.option2, req.body.option3, req.body.option4],
         answer: req.body.answer
     }
 
