@@ -47,12 +47,10 @@ router.put('/:id', (req, res) => {
                 question.answer = updateQuestion ? updateQuestion.answer : question.answer;
 
                 res.json({ msg: `Question Update.`, question })
-            } else {
-                res.status(400).json({ msg: `No question with the ID of ${req.params.id}` });
             }
         })
     } else {
-
+        res.status(400).json({ msg: `No question with the ID of ${req.params.id}` });
     }
 })
 
