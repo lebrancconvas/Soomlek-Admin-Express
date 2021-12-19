@@ -22,7 +22,7 @@ const { engine } = require('express-handlebars');
 app.use(logger);
 
 app.engine('handlebars', engine({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
+app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
     res.render('index', {
