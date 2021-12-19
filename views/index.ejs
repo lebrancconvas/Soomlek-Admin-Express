@@ -1,50 +1,49 @@
-<h1 class="text-center">{{title}}</h1>  
-<form action="/api/questions" method="post">
-	<div class="form-group">
-		<label for="question">คำถาม</label>
-		<input type="text" name="question" class="form-control" required>  
-	</div>
-	<br>
-	<div class="form-group">
-		<label for="option1">ตัวเลือกที่ 1</label>
-		<input type="text" name="option1" class="form-control" required> 
-	</div>
-	<br>
-	<div class="form-group">
-		<label for="option2">ตัวเลือกที่ 2</label>
-		<input type="text" name="option2" class="form-control" required> 
-	</div>
-	<br>
-	<div class="form-group">
-		<label for="option3">ตัวเลือกที่ 3</label>
-		<input type="text" name="option3" class="form-control" required> 
-	</div>
-	<br>
-	<div class="form-group">
-		<label for="option4">ตัวเลือกที่ 4</label> 
-		<input type="text" name="option4" class="form-control" required>  
-	</div>
-	<br> 
-	<div class="form-group">
-		<label for="answer">คำตอบ</label> 
-		<input type="text" name="answer" class="form-control" required>   
-	</div>
-	<br> 
-	<div class="d-grid gap-2">
-		<input type="submit" value="เพิ่มคำถาม" class="btn btn-success">  
-	</div>
-</form>
-<br><br> 
-<h3>โจทย์ปัญหา</h3>  
-<ul class="list-group">
-	{{#each questions}}
-		<li class="list-group-item">
-			คำถาม: {{this.question}} 
-			{{#each this.options}}
-				<li class="list-group-item">{{this}}</li>   
-			{{/each}}
-			เฉลย: {{this.answer}}  
-		</li>
-		<br><br><br>  
-	{{/each}} 
-</ul>
+<% include layouts/main.ejs %>
+    <h1 class="text-center">
+        {{title}}</h1>
+    <form action="/api/questions" method="post">
+        <div class="form-group">
+            <label for="question">คำถาม</label>
+            <input type="text" name="question" class="form-control" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="option1">ตัวเลือกที่ 1</label>
+            <input type="text" name="option1" class="form-control" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="option2">ตัวเลือกที่ 2</label>
+            <input type="text" name="option2" class="form-control" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="option3">ตัวเลือกที่ 3</label>
+            <input type="text" name="option3" class="form-control" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="option4">ตัวเลือกที่ 4</label>
+            <input type="text" name="option4" class="form-control" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="answer">คำตอบ</label>
+            <input type="text" name="answer" class="form-control" required>
+        </div>
+        <br>
+        <div class="d-grid gap-2">
+            <input type="submit" value="เพิ่มคำถาม" class="btn btn-success">
+        </div>
+    </form>
+    <br><br>
+    <h3>โจทย์ปัญหา</h3>
+    <ul class="list-group">
+        {{#each questions}}
+        <li class="list-group-item">
+            คำถาม: {{this.question}} {{#each this.options}}
+            <li class="list-group-item">{{this}}</li>
+            {{/each}} เฉลย: {{this.answer}}
+        </li>
+        <br><br><br> {{/each}}
+    </ul>
